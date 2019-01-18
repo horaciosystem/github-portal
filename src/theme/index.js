@@ -13,7 +13,10 @@ const theme = {
     error: "#d32f2f"
   },
   pageWidth: "1200px",
-  spacing: "1.6rem",
+  spacing: {
+    normal: "1.6rem",
+    small: "0.8rem"
+  },
   fontWeight: {
     regular: 400,
     semibold: 600,

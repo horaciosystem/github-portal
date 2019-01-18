@@ -3,9 +3,9 @@ import { theme } from "styled-tools"
 
 const MainColumn = styled(Box)`
   max-width: ${theme("pageWidth")};
-  margin: ${theme("spacing")} auto;
-  padding-left: ${theme("spacing")};
-  padding-right: ${theme("spacing")};
+  margin: ${theme("spacing.normal")} auto;
+  padding-left: ${theme("spacing.normal")};
+  padding-right: ${theme("spacing.normal")};
 `
 
 export default MainColumn
