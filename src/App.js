@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { BrowserRouter as Router, Route } from "react-router-dom"
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom"
 import { Provider as ThemeProvider } from "reakit"
 import { StoreProvider } from "common/StoreContext"
 import UsersList from "pages/UsersList"
@@ -14,6 +14,7 @@ class App extends Component {
         <ThemeProvider theme={theme}>
           <Router>
             <>
+              <Route exact path="/" render={() => <Redirect to="/users" />} />
               <Route path="/users" exact component={UsersList} />
               <Route path="/users/:login/details" component={UserDetails} />
             </>
