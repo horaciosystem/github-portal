@@ -1,4 +1,6 @@
-# github portal
+# Github-Portal
+
+[Try it out](https://github-portal-shawn.herokuapp.com)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
