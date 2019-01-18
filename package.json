@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "and": "^0.0.3",
+    "compression": "^1.7.3",
     "express": "^4.16.4",
     "react": "16.8.0-alpha.0",
     "react-dom": "16.8.0-alpha.0",
