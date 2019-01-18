@@ -7,7 +7,7 @@ app.use(express.static(__dirname))
 app.use(express.static(path.join(__dirname, "build")))
 
 app.get("/", (req, res) =>
-  res.redirect(301, "https://github-portal-shawn.herokuapp.com//users")
+  res.redirect(301, "https://github-portal-shawn.herokuapp.com/users")
 )
 
 app.get("/*", function(req, res) {
