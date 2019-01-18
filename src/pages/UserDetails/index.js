@@ -1,11 +1,16 @@
 import React from "react"
-import { Flex, Image, Heading, Card, Link } from "reakit"
+import { styled, Flex, Image, Heading, Card, Link } from "reakit"
+import { theme } from "styled-tools"
 import MainColumn from "common/MainColumn"
 import AsyncHandler from "common/AsyncHandler"
-import useFetch from "lib/useFetch"
-import RepositoriesTable from "./RepositoriesTable"
 import Label from "common/Label"
 import InfoText from "common/InfoText"
+import useFetch from "lib/useFetch"
+import RepositoriesTable from "./RepositoriesTable"
+
+const FieldRow = styled(Flex)`
+  margin-bottom: ${theme("spacing.normal")};
+`
 
 const STORE_KEY = "USER"
 
@@ -23,30 +28,32 @@ function UserDetails({ match: { params } }) {
       <AsyncHandler fetcher={user}>
         {({ data: { avatar_url, id, html_url, created_at, repos_url } }) => (
           <Flex flexDirection="column">
-            <Card.Fit
-              as={Image}
-              src={avatar_url}
-              alt="User avatar"
-              width={200}
-              height={200}
-            />
-            <Flex>
+            <FieldRow>
+              <Card.Fit
+                as={Image}
+                src={avatar_url}
+                alt="User avatar"
+                width={200}
+                height={200}
+              />
+            </FieldRow>
+            <FieldRow>
               <Label>ID</Label>
               <InfoText>{id}</InfoText>
-            </Flex>
-            <Flex>
+            </FieldRow>
+            <FieldRow>
               <Label>Login</Label>
               <InfoText>{params.login}</InfoText>
-            </Flex>
-            <Flex>
+            </FieldRow>
+            <FieldRow>
               <Label>Create at</Label>
               <InfoText>{formatDate(new Date(created_at))}</InfoText>
-            </Flex>
-            <Flex>
+            </FieldRow>
+            <FieldRow>
               <Link href={html_url} rel="noopener noreferrer" target="_blank">
                 Github profile
               </Link>
-            </Flex>
+            </FieldRow>
             <RepositoriesTable url={repos_url} />
           </Flex>
         )}

@@ -1,5 +1,5 @@
 import React from "react"
-import { styled, Box, Card, Avatar, Flex } from "reakit"
+import { styled, Box, Card, Avatar, Flex, Link } from "reakit"
 import { Link as ReactRouterLink } from "react-router-dom"
 import { theme, palette } from "styled-tools"
 import Label from "common/Label"
@@ -41,9 +41,9 @@ function UserCard({ user: { id, avatar_url, login } }) {
           </Flex>
         </Flex>
       </Flex>
-      <ReactRouterLink to={`/users/${login}/details`}>
+      <Link as={ReactRouterLink} to={`/users/${login}/details`}>
         View details
-      </ReactRouterLink>
+      </Link>
     </StyledCard>
   )
 }

@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "and": "^0.0.3",
+    "express": "^4.16.4",
     "react": "16.8.0-alpha.0",
     "react-dom": "16.8.0-alpha.0",
     "react-router-dom": "^4.3.1",
@@ -13,7 +14,7 @@
     "styled-tools": "^1.7.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

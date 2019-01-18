@@ -8,8 +8,14 @@ import appTheme from "theme"
 const STORE_KEY = "USERS"
 
 const stateUpdater = data => prevState => {
-  let oldData = prevState[STORE_KEY] || []
-  let newData = [...oldData, ...data]
+  let cachedData = prevState[STORE_KEY] || []
+  //use cached data if there's
+  let first = data[0]
+  if (cachedData.some(it => it.id === first.id)) {
+    return { ...prevState, [STORE_KEY]: cachedData }
+  }
+
+  let newData = [...cachedData, ...data]
   return { ...prevState, [STORE_KEY]: newData }
 }
 
