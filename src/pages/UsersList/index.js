@@ -1,14 +1,21 @@
 import React, { useState } from "react"
 import { Grid, Flex, Box, Heading, Button } from "reakit"
-import { Link as ReactRouterLink } from "react-router-dom"
 import useFetch from "lib/useFetch"
 import MainColumn from "common/MainColumn"
 import UserCard from "./UserCard"
 import appTheme from "theme"
 
+const STORE_KEY = "USERS"
+
+const stateUpdater = data => prevState => {
+  let oldData = prevState[STORE_KEY] || []
+  let newData = [...oldData, ...data]
+  return { ...prevState, [STORE_KEY]: newData }
+}
+
 function UsersList() {
   let [url, setUrl] = useState("//api.github.com/users")
-  let { error, loading, data } = useFetch({ url, key: "users" })
+  let { error, loading, data } = useFetch({ url, key: STORE_KEY, stateUpdater })
 
   if (error) {
     return <div>Error: {error}</div>
@@ -24,6 +31,7 @@ function UsersList() {
 
   let [last] = data.slice(-1)
   let loadMore = () => setUrl(`https://api.github.com/users?since=${last.id}`)
+
   return (
     <MainColumn>
       <Heading fontSize={36}>Github Users</Heading>

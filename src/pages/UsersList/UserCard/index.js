@@ -1,14 +1,9 @@
 import React from "react"
-import { styled, Heading, Box, Card, Avatar, Flex } from "reakit"
-// import { Link as ReactRouterLink } from "react-router-dom"
+import { styled, Box, Card, Avatar, Flex } from "reakit"
+import { Link as ReactRouterLink } from "react-router-dom"
 import { theme, palette } from "styled-tools"
+import Label from "common/Label"
 import appTheme from "theme"
-
-const CardLabel = styled(Box)`
-  color: ${palette("text75")};
-  margin-right: 8px;
-  font-weight: ${theme("fontWeight.semibold")};
-`
 
 const CardText = styled(Box)`
   font-weight: ${theme("fontWeight.bold")};
@@ -37,16 +32,18 @@ function UserCard({ user: { id, avatar_url, login } }) {
         />
         <Flex flexDirection="column" justifyContent="center">
           <Flex alignItems="center" marginBottom={appTheme.spacing.small}>
-            <CardLabel>ID</CardLabel>
+            <Label>ID</Label>
             <CardText>{id}</CardText>
           </Flex>
           <Flex alignItems="center">
-            <CardLabel>Login</CardLabel>
+            <Label>Login</Label>
             <CardText>{login}</CardText>
           </Flex>
         </Flex>
-        {/* <ReactRouterLink to={`/survivors/${id}/edit`}>View details</ReactRouterLink> */}
       </Flex>
+      <ReactRouterLink to={`/users/${login}/details`}>
+        View details
+      </ReactRouterLink>
     </StyledCard>
   )
 }
