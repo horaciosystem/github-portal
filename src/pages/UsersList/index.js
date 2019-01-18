@@ -54,7 +54,7 @@ function UsersList() {
           </Grid>
         </Box>
         <Flex justifyContent="center">
-          <Button onClick={loadMore}>
+          <Button disabled={loading} onClick={loadMore}>
             {loading ? "Loading..." : "Load more"}
           </Button>
         </Flex>
