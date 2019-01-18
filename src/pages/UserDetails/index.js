@@ -8,7 +8,7 @@ import InfoText from "common/InfoText"
 import useFetch from "lib/useFetch"
 import RepositoriesTable from "./RepositoriesTable"
 
-const FieldRow = styled(Flex)`
+export const FieldRow = styled(Flex)`
   margin-bottom: ${theme("spacing.normal")};
 `
 
@@ -19,7 +19,7 @@ const stateUpdater = data => prevState => {
 }
 
 function UserDetails({ match: { params } }) {
-  let url = `https://api.github.com/users/${params.login}`
+  let url = `//api.github.com/users/${params.login}`
   let user = useFetch({ url, key: STORE_KEY, stateUpdater })
 
   return (

@@ -1,17 +1,10 @@
 import React from "react"
-import { styled, Box, Card, Avatar, Flex, Link } from "reakit"
+import { styled, Card, Avatar, Flex, Link } from "reakit"
 import { Link as ReactRouterLink } from "react-router-dom"
-import { theme, palette } from "styled-tools"
+import { theme } from "styled-tools"
 import Label from "common/Label"
+import InfoText from "common/InfoText"
 import appTheme from "theme"
-
-const CardText = styled(Box)`
-  font-weight: ${theme("fontWeight.bold")};
-  color: ${palette("text")};
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`
 
 const StyledCard = styled(Card)`
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -33,11 +26,11 @@ function UserCard({ user: { id, avatar_url, login } }) {
         <Flex flexDirection="column" justifyContent="center">
           <Flex alignItems="center" marginBottom={appTheme.spacing.small}>
             <Label>ID</Label>
-            <CardText>{id}</CardText>
+            <InfoText>{id}</InfoText>
           </Flex>
           <Flex alignItems="center">
             <Label>Login</Label>
-            <CardText>{login}</CardText>
+            <InfoText>{login}</InfoText>
           </Flex>
         </Flex>
       </Flex>

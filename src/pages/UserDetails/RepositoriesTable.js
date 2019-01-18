@@ -1,7 +1,9 @@
 import React from "react"
 import { Block, Table, Link } from "reakit"
 import AsyncHandler from "common/AsyncHandler"
+import Label from "common/Label"
 import useFetch from "lib/useFetch"
+import appTheme from "theme"
 
 const STORE_KEY = "REPOS"
 
@@ -18,8 +20,8 @@ function RepositoriesTable({ url }) {
         if (data.length) {
           return (
             <Block>
+              <Label marginBottom={appTheme.spacing.small}>Repositories</Label>
               <Table>
-                <caption>Repositories</caption>
                 <thead>
                   <tr>
                     <th>ID</th>

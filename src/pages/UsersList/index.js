@@ -36,7 +36,7 @@ function UsersList() {
   }
 
   let [last] = data.slice(-1)
-  let loadMore = () => setUrl(`https://api.github.com/users?since=${last.id}`)
+  let loadMore = () => setUrl(`//api.github.com/users?since=${last.id}`)
 
   return (
     <MainColumn>
